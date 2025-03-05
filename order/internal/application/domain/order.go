@@ -12,7 +12,7 @@ type Order struct {
 	CustomerId string        `json:"customer_id"`
 	Status     string        `json:"status"`
 	OrderItems []ProductItem `json:"order_items"`
-	CreatedAt  time.Time     `json:"created_at"`
+	CreatedAt  int64         `json:"created_at"`
 }
 
 func NewOrder(customerId string, items []ProductItem) *Order {
@@ -20,6 +20,6 @@ func NewOrder(customerId string, items []ProductItem) *Order {
 		CustomerId: customerId,
 		Status:     "pending",
 		OrderItems: items,
-		CreatedAt:  time.Now(),
+		CreatedAt:  time.Now().Unix(),
 	}
 }
